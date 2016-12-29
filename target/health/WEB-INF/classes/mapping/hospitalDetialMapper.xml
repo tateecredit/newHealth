@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ts.ssm.dao.HospitalDetialDao">
+
+    <resultMap id="hospitaldetialBaseMap" type="com.ts.ssm.model.HospitalDetial">
+        <result column="address" property="address" jdbcType="CHAR"/>
+        <result column="level" property="level" jdbcType="CHAR"/>
+        <result column="hospitalname" property="hospitalname" jdbcType="CHAR"/>
+        <result column="quality" property="quality" jdbcType="CHAR"/>
+        <result column="tel" property="tel" jdbcType="CHAR"/>
+        <result column="type" property="type" jdbcType="CHAR"/>
+        <result column="hospitalId" property="hospitalId" jdbcType="CHAR"/>
+    </resultMap>
+
+    <select id="selectAllhospitaldetial" resultMap="hospitaldetialBaseMap">
+        SELECT * FROM hospitalDetail
+    </select>
+
+</mapper>

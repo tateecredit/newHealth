@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ts.ssm.dao.DeptBasicMsgDao">
+
+    <resultMap id="deptBasicMsgBaseMap" type="com.ts.ssm.model.DeptBasicMsg">
+        <result column="areaName" property="areaName" jdbcType="CHAR"/>
+        <result column="hospitalId" property="hospitalId" jdbcType="CHAR"/>
+        <result column="deptId" property="deptId" jdbcType="CHAR"/>
+        <result column="deptName" property="deptName" jdbcType="CHAR"/>
+    </resultMap>
+
+    <select id="selectAlldeptBasicMsg" resultMap="deptBasicMsgBaseMap">
+        SELECT * FROM deptBasicMsg
+    </select>
+
+</mapper>
