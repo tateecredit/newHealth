@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ts.ssm.dao.HospAndDeptDao">
+
+    <resultMap id="hospanddeptBaseMap" type="com.ts.ssm.model.HospAndDept">
+        <result column="address" property="address" jdbcType="CHAR"/>
+        <result column="level" property="level" jdbcType="CHAR"/>
+        <result column="hospitalname" property="hospitalname" jdbcType="CHAR"/>
+        <result column="quality" property="quality" jdbcType="CHAR"/>
+        <result column="tel" property="tel" jdbcType="CHAR"/>
+        <result column="type" property="type" jdbcType="CHAR"/>
+        <result column="hospitalId" property="hospitalId" jdbcType="CHAR"/>
+        <result column="areaName" property="areaName" jdbcType="CHAR"/>
+        <result column="deptId" property="deptId" jdbcType="CHAR"/>
+        <result column="deptName" property="deptName" jdbcType="CHAR"/>
+    </resultMap>
+
+    <select id="selectHospAndDept" resultMap="hospanddeptBaseMap">
+        select h.`hospitalname`,h.`address`,h.`tel`,h.`level`,h.`quality`,h.`type`,h.`hospitalId`,d.`deptName`,d.`deptId`,d.`areaName`
+        from `hospitalDetail` h
+        inner join  `deptBasicMsg` d on h.`hospitalId` = d.`hospitalId`
+        and d.`deptName` like CONCAT('%',#{0},'%')
+        and d.`areaName`= #{1}
+    </select>
+
+</mapper>
